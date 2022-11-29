@@ -92,6 +92,8 @@
 			dependencies = (
 			);
 			name = News;
+			packageProductDependencies = (
+			);
 			productName = News;
 			productReference = F7B9160029349F6B00045516 /* News.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +122,8 @@
 				Base,
 			);
 			mainGroup = F7B915F729349F6B00045516;
+			packageReferences = (
+			);
 			productRefGroup = F7B9160129349F6B00045516 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

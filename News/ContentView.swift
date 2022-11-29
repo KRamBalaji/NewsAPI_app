@@ -13,21 +13,26 @@ struct ContentView: View {
     @State var news: APIResponse?
     
     var body: some View {
-        NavigationView {
-            if let news = news {
-                NewsView(news: news)
-                    .navigationTitle("News")
+        TabView {
+            NavigationView {
+                if let news = news {
+                    NewsView(news: news)
+                        .navigationTitle("News")
+                }
+                else {
+                    ProgressView()
+                        .task {
+                            do {
+                                news = try await newsManager.getCurrentNews()
+                            }
+                            catch {
+                                print("Error getting weather: \(error)")
+                            }
+                        }
+                }
             }
-            else {
-                ProgressView()
-                    .task {
-                        do {
-                            news = try await newsManager.getCurrentNews()
-                        }
-                        catch {
-                            print("Error getting weather: \(error)")
-                        }
-                    }
+            .tabItem {
+                Label("Discover", systemImage: "wand.and.rays")
             }
         }
     }

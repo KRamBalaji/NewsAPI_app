@@ -9,7 +9,10 @@ import Foundation
 
 class NewsManager {
     func getCurrentNews() async throws -> APIResponse {
-        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=US&apiKey=\("6f9a024b451f41a7a438cb191016936b")") else { fatalError("Missing URL")}
+        
+        let API_KEY = "6f9a024b451f41a7a438cb191016936b"
+        
+        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?country=US&apiKey=\(API_KEY)") else { fatalError("Missing URL")}
         
         let urlRequest = URLRequest(url: url)
         

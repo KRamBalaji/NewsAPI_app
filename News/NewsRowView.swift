@@ -27,11 +27,16 @@ struct NewsRowView: View {
                 Text(article.title)
                     .font(.system(.headline, design: .rounded))
                     .lineLimit(3)
+                Text("Source: \(article.source.name)")
+                    .foregroundColor(.teal)
+                    .font(.system(.callout, design: .rounded))
+                    .lineLimit(3)
                 Text(article.description ?? "no description found")
                     .font(.system(.subheadline, design: .rounded))
                     .foregroundColor(.gray)
                     .lineLimit(3)
             }
+            .padding(.vertical)
         }
     }
 }
